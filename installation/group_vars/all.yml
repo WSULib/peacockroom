@@ -20,6 +20,10 @@ basic_packages:
   - openssh-server
   - php
   - php-mysql
+  - python-dev
+  - python-mysqldb
+  - python-pip
+  - python-setuptools
   - software-properties-common
   - redis
   - tree
