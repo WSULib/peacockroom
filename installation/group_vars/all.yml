@@ -49,4 +49,6 @@ peacockroom_mysql_host: localhost
 
 ip_address: 192.168.45.10
 
+peacockroom_git_branch: master
+
 
