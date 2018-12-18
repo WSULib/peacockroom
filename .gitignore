@@ -1,0 +1,12 @@
+/.ant-targets-build.xml
+/.php_cs.cache
+/build/
+/config/local.config.php
+/config/database.ini
+/logs/sql.log
+/logs/application.log
+/application/test/config/database.ini
+/node_modules/
+.sass-cache
+.DS_Store
+/application/language/debug.*
