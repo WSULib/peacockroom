@@ -20,6 +20,7 @@ basic_packages:
   - openssh-server
   - php
   - php-mysql
+  - php-xml
   - python-dev
   - python-mysqldb
   - python-pip
