@@ -1,0 +1,63 @@
+---
+
+- name: Is Peacock Room already installed?
+  stat:
+    path: /var/www/peacockroom
+  register: peacockroom_installed
+  changed_when: peacockroom_installed.stat.exists == False
+
+- name: Clone Peacock Room Github repository
+  git:
+    repo: https://github.com/WSULib/peacockroom.git
+    dest: /var/www/peacockroom
+    version: "{{ peacockroom_git_branch }}"
+  when: peacockroom_installed.stat.exists == False
+
+- name: Set permissions
+  file:
+    path: /var/www/peacockroom
+    recurse: yes
+    owner: peacock
+    group: www-data
+
+- name: Copy the peacockroom.sql file to tmp
+  template:
+    src: peacockroom.sql
+    dest: /tmp/peacockroom.sql
+  when: peacockroom_installed.stat.exists == False
+
+- name: Prepare Peacock Room Database
+  mysql_db:
+    config_file: /root/.my.cnf
+    state: import
+    name: all
+    target: /tmp/peacockroom.sql
+  when: peacockroom_installed.stat.exists == False
+
+- Place Apache vhost file into the correct spot
+  template:
+    src: peacockroom.conf
+    dest: /etc/apache2/sites-available/peacockroom.conf
+  when: peacockroom_installed.stat.exists == False
+
+- Enable Apache vhost file
+
+
+- Configure database.ini
+  template:
+    src: database.ini
+    dest: /var/www/peacockroom/config/database.ini
+  when: peacockroom_installed.stat.exists == False
+
+- Copy local.config.php
+  template:
+    src: local.config.php
+    dest: /var/www/peacockroom/config/local.config.php
+  when: peacockroom_installed.stat.exists == False
+
+- name: Reset permissions
+  file:
+    path: /var/www/peacockroom
+    recurse: yes
+    owner: peacock
+    group: www-data

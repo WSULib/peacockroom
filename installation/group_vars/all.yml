@@ -1,0 +1,48 @@
+---
+
+basic_packages:
+  - apache2
+  - bc
+  - build-essential
+  - curl
+  - git
+  - htop
+  - imagemagick
+  - libapache2-mod-php
+  - libapache2-mod-wsgi
+  - libapache2-mod-jk
+  - libmysqlclient-dev
+  - libxml2-dev
+  - libxslt1-dev
+  - mysql-server
+  - npm
+  - ncdu
+  - openssh-server
+  - php
+  - php-mysql
+  - software-properties-common
+  - redis
+  - tree
+  - unzip
+  - vim
+  - wget
+  - zip
+  - zlib1g-dev
+
+#server vars
+
+ssh_password: peacock
+
+mysql_root_password: peacock
+
+peacockroom_mysql_username: peacock
+
+peacockroom_mysql_password: peacock
+
+peacockroom_mysql_database: peacock
+
+peacockroom_mysql_host: localhost
+
+ip_address: 192.168.45.10
+
+
