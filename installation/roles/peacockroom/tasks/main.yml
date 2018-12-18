@@ -34,22 +34,22 @@
     target: /tmp/peacockroom.sql
   when: peacockroom_installed.stat.exists == False
 
-- Place Apache vhost file into the correct spot
+- name: Place Apache vhost file into the correct spot
   template:
     src: peacockroom.conf
     dest: /etc/apache2/sites-available/peacockroom.conf
   when: peacockroom_installed.stat.exists == False
 
-- Enable Apache vhost file
+- name: Enable Apache vhost file
+  command: a2ensite peacockroom.conf
 
-
-- Configure database.ini
+- name: Configure database.ini
   template:
     src: database.ini
     dest: /var/www/peacockroom/config/database.ini
   when: peacockroom_installed.stat.exists == False
 
-- Copy local.config.php
+- name: Copy local.config.php
   template:
     src: local.config.php
     dest: /var/www/peacockroom/config/local.config.php
@@ -61,3 +61,6 @@
     recurse: yes
     owner: peacock
     group: www-data
+
+- name: Restart Apache
+  action: service name=apache2 state=restarted enabled=true
