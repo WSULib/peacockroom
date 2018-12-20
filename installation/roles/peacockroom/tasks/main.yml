@@ -67,7 +67,7 @@
     remote_src: yes
 
 - name: Rename Google Analytics Module
-  command: mv /var/www/peacockroom/modules/omeka-google-analytics-module-{{ ga_module_version }}
+  command: mv /var/www/peacockroom/modules/omeka-google-analytics-module-{{ ga_module_version }} /var/www/peacockroom/modules/GoogleAnalytics
   args:
     creates: /var/www/peacockroom/modules/GoogleAnalytics
     removes: /var/www/peacockroom/modules/v{{ ga_module_version }}.zip
