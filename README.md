@@ -5,6 +5,11 @@ This is a customized version of Omeka-S, made for the Smithsonian and Wayne Stat
 
 ## Installation
 
+### Quick Install
+Install Vagrant, Virtualbox, and git. Then, navigating to the installation folder, type in `vagrant up`.
+
+
+### Hands-On Installation Methoda
 ### Requirements
 * Linux
 * Apache (with [AllowOverride](https://httpd.apache.org/docs/2.4/mod/core.html#allowoverride) set to "All" and [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) enabled)
