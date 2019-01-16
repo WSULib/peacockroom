@@ -72,7 +72,7 @@
     path: /var/www/peacockroom/files
     owner: peacock
     group: www-data
-    mode: 0664
+    mode: 0775
 
 - name: Restart Apache
   action: service name=apache2 state=restarted enabled=true
