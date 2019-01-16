@@ -60,17 +60,6 @@
     dest: /var/www/peacockroom/config/local.config.php
   when: peacockroom_installed.stat.exists == False
 
-- name: Download and Upack Google Analytics Module
-  unarchive:
-    src: https://github.com/digirati-co-uk/omeka-google-analytics-module/archive/v{{ ga_module_version }}.zip
-    dest: /var/www/peacockroom/modules
-    remote_src: yes
-
-- name: Rename Google Analytics Module
-  command: mv /var/www/peacockroom/modules/omeka-google-analytics-module-{{ ga_module_version }} /var/www/peacockroom/modules/GoogleAnalytics
-  args:
-    creates: /var/www/peacockroom/modules/GoogleAnalytics
-
 - name: Reset permissions
   file:
     path: /var/www/peacockroom
