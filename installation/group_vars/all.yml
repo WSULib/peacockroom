@@ -34,6 +34,10 @@ basic_packages:
   - zip
   - zlib1g-dev
 
+docker_packages:
+  - apt-transport-https
+  - ca-certificates
+
 #server vars
 
 ssh_password: peacock

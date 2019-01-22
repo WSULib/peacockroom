@@ -6,7 +6,8 @@
   pre_tasks:
     - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
   roles:
-    - common
-    - mysql
-    - apache
-    - peacockroom
+    # - common
+    # - mysql
+    # - apache
+    # - peacockroom
+    - solr
